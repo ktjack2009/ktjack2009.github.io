@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="数组【array】数组定义【定义后长度不可变】12symbol := [...]string&amp;#123;USD: &amp;quot;$&amp;quot;, EUR: &amp;quot;€&amp;quot;, GBP: &amp;quot;￡&amp;quot;, RMB: &amp;quot;￥&amp;quot;&amp;#125;fmt.Println(RMB, symbol[RMB]) 指针数组12345678910111213var array3 [5">
+  <meta name="description" content="数组【array】">
 <meta name="keywords" content="Golang,学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go基础学习(二)">
 <meta property="og:url" content="http://yoursite.com/2018/05/04/Go基础学习-二/index.html">
 <meta property="og:site_name" content="D&amp;W&#39;s Space">
-<meta property="og:description" content="数组【array】数组定义【定义后长度不可变】12symbol := [...]string&amp;#123;USD: &amp;quot;$&amp;quot;, EUR: &amp;quot;€&amp;quot;, GBP: &amp;quot;￡&amp;quot;, RMB: &amp;quot;￥&amp;quot;&amp;#125;fmt.Println(RMB, symbol[RMB]) 指针数组12345678910111213var array3 [5">
+<meta property="og:description" content="数组【array】">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-03T12:29:35.746Z">
+<meta property="og:updated_time" content="2019-05-03T12:48:05.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go基础学习(二)">
-<meta name="twitter:description" content="数组【array】数组定义【定义后长度不可变】12symbol := [...]string&amp;#123;USD: &amp;quot;$&amp;quot;, EUR: &amp;quot;€&amp;quot;, GBP: &amp;quot;￡&amp;quot;, RMB: &amp;quot;￥&amp;quot;&amp;#125;fmt.Println(RMB, symbol[RMB]) 指针数组12345678910111213var array3 [5">
+<meta name="twitter:description" content="数组【array】">
 
 
 
@@ -498,7 +498,8 @@
       
 
       
-        <h2 id="数组【array】"><a href="#数组【array】" class="headerlink" title="数组【array】"></a>数组【array】</h2><p>数组定义【定义后长度不可变】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">symbol := [...]string&#123;USD: &quot;$&quot;, EUR: &quot;€&quot;, GBP: &quot;￡&quot;, RMB: &quot;￥&quot;&#125;</span><br><span class="line">fmt.Println(RMB, symbol[RMB])</span><br></pre></td></tr></table></figure></p>
+        <h2 id="数组【array】"><a href="#数组【array】" class="headerlink" title="数组【array】"></a>数组【array】</h2><a id="more"></a>
+<p>数组定义【定义后长度不可变】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">symbol := [...]string&#123;USD: &quot;$&quot;, EUR: &quot;€&quot;, GBP: &quot;￡&quot;, RMB: &quot;￥&quot;&#125;</span><br><span class="line">fmt.Println(RMB, symbol[RMB])</span><br></pre></td></tr></table></figure></p>
 <p>指针数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var array3 [5]*int</span><br><span class="line">for i := range array3 &#123;</span><br><span class="line">    array3[i] = new(int)</span><br><span class="line">&#125;</span><br><span class="line">*array3[0] = 1</span><br><span class="line">*array3[1] = 2</span><br><span class="line">*array3[2] = 3</span><br><span class="line">*array3[3] = 4</span><br><span class="line">*array3[4] = 5</span><br><span class="line">array4 := array3</span><br><span class="line">for _, v := range array4 &#123;</span><br><span class="line">    fmt.Println(*v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="切片【可变数组】"><a href="#切片【可变数组】" class="headerlink" title="切片【可变数组】"></a>切片【可变数组】</h2><p>切片在底层维护一个可以动态扩展的数组，切片这一数据结构包含三个元素，指针、长度、容量【所以切片是引用类型】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">source := make([]string, 3, 5) // 访问长度3个元素，底层数组拥有5个元素，不允许创建容量小于长度的切片</span><br><span class="line">source = []string&#123;&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;black&quot;&#125;</span><br><span class="line">slice := source[2:3:5] // 1个元素，容量为5-2=3</span><br><span class="line">for _, v := range slice &#123;</span><br><span class="line">    fmt.Println(v)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Println(len(slice))</span><br><span class="line">fmt.Println(cap(slice))</span><br></pre></td></tr></table></figure></p>
 <p>切片、字符串互相转换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">source := make([]string, 10)</span><br><span class="line">source = []string&#123;&quot;123&quot;, &quot;456&quot;, &quot;789&quot;&#125;</span><br><span class="line">a := strings.Join(source, &quot;,&quot;) // 切片转字符串</span><br><span class="line">m := strings.Split(a, &quot;,&quot;)</span><br><span class="line">fmt.Println(a)</span><br><span class="line">fmt.Println(m)</span><br></pre></td></tr></table></figure></p>

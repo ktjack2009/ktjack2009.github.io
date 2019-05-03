@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[星星日记01]]></title>
+    <url>%2F2018%2F10%2F31%2F%E6%98%9F%E6%98%9F%E6%97%A5%E8%AE%B001%2F</url>
+    <content type="text"><![CDATA[星星黄疸有点高，需要晒晒太阳，星星要健健康康的长大哟！]]></content>
+      <categories>
+        <category>星星日记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>成长</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[星星日记00]]></title>
+    <url>%2F2018%2F10%2F29%2F%E6%98%9F%E6%98%9F%E6%97%A5%E8%AE%B000%2F</url>
+    <content type="text"><![CDATA[2018年10月29日19点56分。由于爸爸昨天和妈妈散步的时候和星星说，星星要快点出来，结果星星今天迫不及待的就跑出来了，妈妈都还没来得及准备。好在星星比较乖，没有让妈妈太疼，顺顺利利的跑出来了，女儿棒棒的!【ps：由于爸爸笨，才知道有这种方式记录星星的成长，希望星星长大了之后不要怪爸爸^_^】]]></content>
+      <categories>
+        <category>星星日记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>成长</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[星星日记【pre】]]></title>
+    <url>%2F2018%2F09%2F16%2F%E6%98%9F%E6%98%9F%E6%97%A5%E8%AE%B0%E3%80%90pre%E3%80%91%2F</url>
+    <content type="text"><![CDATA[星星还有2个月就要出来和爸爸妈妈见面了…]]></content>
+      <categories>
+        <category>星星日记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>成长</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go基础学习(一)]]></title>
+    <url>%2F2018%2F05%2F03%2FGo%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[变量 从计算系统实现的角度来看，变量是一段或多段用来存储数据的内存； 类型决定了变量内存的长度和存储格式； 建议以组方式整理多行变量定义： 1234var ( x, y int a, s = 100, &quot;abc&quot;) 在进行多变量赋值操作时，首先计算出所有的右值，然后在依次完成赋值操作； 命名建议： 使用驼峰拼写格式 局部变量优先使用短名 不要使用保留关键字 不建议使用与预定义常量、类型、内置函数相同的名字 专有名词通常会全部大写 首字母大小写决定了其作用域，首字母大写的可被外包引用，小写则仅能在包内使用； 常量 常量值必须是编译期可确定的字符、字符串、数字或者布尔值； 不曾使用的常量不会引发编译错误； 在常量组中如不指定类型和初始化值，则与上一行非空常量右值（表达式文本）相同： 123456const ( x uint16 = 120 y // 与x类型、右值相同 s = &quot;abc&quot; z // 与s类型、右值相同) 引用类型 所谓引用类型（reference type）特指slice、map、channel这三种预定义类型； 相比数字、数组等类型，引用类型拥有更复杂的存储结构。除分配内存外，它们还需初始化一系列属性，诸如指针、长度，甚至包括哈希分布、数据队列等； 内置函数new按指定类型长度分配零值内存，返回指针，并不关心类型内存构造和初始化方式。而引用类型则必须使用make函数创建，编译器会将make转化为目标类型专用的创建函数或指令，以确保完成全部内存分配和相关属性初始化； 基础数据类型string类型123456789101112131415s := &quot;hello world&quot;fmt.Println(len(s)) // 输出字符串长度fmt.Println(s[0], s[7]) // 104 111【单个元素为字节值，ascii码】fmt.Println(s[0:1]) // h【子串则返回对应的字符】fmt.Println(s[:5]) // 返回字符串==========s := &quot;hello世界&quot; // 字符串里带中文fmt.Println(len(s)) // 长度为11，一个中文占三个字节a := []rune(s) // Unicode码点对应rune整数类型【rune是int32等价类型】fmt.Println(len(a)) // 长度为7for v := range a &#123; // 依次输出 h、e、l、l、o、世、界 fmt.Printf(&quot;%c\n&quot;, a[v])&#125; 整型123456789101112131415161718192021222324var u uint8 = 255/* u 11111111 u + 1 00000000 高位抛弃 u * u 二进制数乘法，高位抛弃*/fmt.Println(u, u+1, u*u)fmt.Printf(&quot;%08b, %08b, %08b\n&quot;, u, u+1, u*u)var i int8 = 127/* i 01111111 【正数的反码、补码就是原码本身】 i + 1 10000000 反码【1111111】原码【10000000】= 128，再加负号 i + 1 + 1 10000001 反码【0000000】原码【1111111】= 127，再加负号*/fmt.Println(i, i+1, i+1+1)fmt.Printf(&quot;%08b, %08b, %08b\n&quot;, i, i+1, i+1+1)var x uint8 = 1&lt;&lt;1 | 1&lt;&lt;5 // 00000010 | 00100000 = 00100010var y uint8 = 1&lt;&lt;1 | 1&lt;&lt;2 // 00000010 | 00000100 = 00000110fmt.Printf(&quot;%d:%08[1]b, %d:%08[2]b\n&quot;, x, y)fmt.Printf(&quot;%d:%08[1]b\n&quot;, x&amp;y) // 00100010 &amp; 00000110 = 00000010fmt.Printf(&quot;%d:%08[1]b\n&quot;, x^y) // 00100010 ^ 00000110 = 00100100 异或fmt.Printf(&quot;%d:%08[1]b\n&quot;, ^y) // ^ 00000110 = 11111001 取反]]></content>
+      <categories>
+        <category>学习记录</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo功能探索]]></title>
+    <url>%2F2018%2F04%2F03%2Fhexo%E5%8A%9F%E8%83%BD%E6%8E%A2%E7%B4%A2%2F</url>
+    <content type="text"><![CDATA[使用hexo搭建个人博客，记录相关功能的实现方法。 1. 文章分类实现对应md文件的head部分增加相关设置123456title: titledate: 2019-05-02 15:08:57tags: categories: - 一级分类 - 二级分类 其它的，还有tag、comments、toc等参数可以设置 2. 导航栏设置修改对应主题下的配置文件_config.yml。菜单栏设置12345678910111213menu: home: / || home categories: /categories/ || th tags: /tags/ || tags # schedule: /schedule/ || calendar # sitemap: /sitemap.xml || sitemap # commonweal: /404/ || heartbeat archives: /archives/ || archive about: /about/ || usermenu_settings: icons: true badges: true 设置完对应的菜单标签之后，还需要创建对应的文件夹123hexo new page &apos;tags&apos;hexo new page &apos;categories&apos;hexo new page &apos;about&apos; 然后在对应index.md文件中设置type属性123title: 文章分类date: 2019-05-02 15:34:18type: categories 布局设置12345# Schemes# scheme: Musescheme: Mist# scheme: Pisces# scheme: Gemini 显示摘要加入&lt;!-- more --&gt;标签，该标签之上的内容为文章摘要，首页只显示文章摘要。 3.插入图片使用markdown语法插入图片，前提是执行npm install hexo-asset-image安装相关插件，否则生成的html文件中的图片路径会不准确。 4.简单加密由于页面是静态html，所以在html中加入js实现简单加密。找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件，加入代码12345678910&lt;script&gt; (function()&#123; if(&apos;&#123;&#123; page.password &#125;&#125;&apos;)&#123; if (prompt(&apos;请输入文章密码&apos;) !== &apos;&#123;&#123; page.password &#125;&#125;&apos;)&#123; alert(&apos;密码错误！&apos;); history.back(); &#125; &#125; &#125;)();&lt;/script&gt; page.password就是md文件中的变量，md文件中设置password参数就能实现简单的权限控制。 5. 搜索功能：安装插件：1npm install hexo-generator-searchdb --save 在根目录下的/theme/next/_config.yml文件中添加配置：12345search: path: search.xml field: post format: html limit: 10000 在根目录下的/theme/next/_config.yml文件修改配置12local_search: enable: true]]></content>
+      <categories>
+        <category>学习记录</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F04%2F01%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>学习记录</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+</search>

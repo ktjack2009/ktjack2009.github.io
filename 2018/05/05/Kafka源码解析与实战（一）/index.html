@@ -72,7 +72,7 @@
     root: '/',
     scheme: 'Mist',
     version: '7.1.0',
-    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="D&amp;W&#39;s Space">
 <meta property="og:description" content="Kafka简介">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-05T06:56:17.546Z">
+<meta property="og:updated_time" content="2019-05-07T02:14:04.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka源码解析与实战（一）">
 <meta name="twitter:description" content="Kafka简介">
@@ -252,7 +252,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">7</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">10</span></a>
 
   </li>
         
@@ -271,7 +271,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">10</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">13</span></a>
 
   </li>
         
@@ -290,7 +290,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">10</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">12</span></a>
 
   </li>
         
@@ -477,6 +477,34 @@
           
 
           
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
 
           
 
@@ -539,7 +567,8 @@
 <li>Kafka集群接收到Producer发来的消息后，将其持久化到硬盘，并保留消息指定时常【可配置】，而不关注消息是否被消费</li>
 <li>Consumer从Kafka集群pull数据，并控制获取消息的Offset</li>
 </ul>
-<h3 id="Kafka内部的通信协议【TODO】"><a href="#Kafka内部的通信协议【TODO】" class="headerlink" title="Kafka内部的通信协议【TODO】"></a>Kafka内部的通信协议【TODO】</h3>
+<h3 id="Kafka内部的通信协议"><a href="#Kafka内部的通信协议" class="headerlink" title="Kafka内部的通信协议"></a>Kafka内部的通信协议</h3><p>每个Kafka集群中有一个Leader状态的KafkaController，Leader异常时通过Zookeeper选举出Leader。（todo）</p>
+
       
     </div>
 
@@ -680,7 +709,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -711,7 +740,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -748,7 +783,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -823,7 +864,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka简介"><span class="nav-number">1.</span> <span class="nav-text">Kafka简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要设计目标"><span class="nav-number">1.1.</span> <span class="nav-text">主要设计目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用消息系统"><span class="nav-number">1.2.</span> <span class="nav-text">为什么使用消息系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka架构"><span class="nav-number">2.</span> <span class="nav-text">Kafka架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本组成"><span class="nav-number">2.1.</span> <span class="nav-text">基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kafka内部的通信协议【TODO】"><span class="nav-number">2.2.</span> <span class="nav-text">Kafka内部的通信协议【TODO】</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka简介"><span class="nav-number">1.</span> <span class="nav-text">Kafka简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要设计目标"><span class="nav-number">1.1.</span> <span class="nav-text">主要设计目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用消息系统"><span class="nav-number">1.2.</span> <span class="nav-text">为什么使用消息系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka架构"><span class="nav-number">2.</span> <span class="nav-text">Kafka架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本组成"><span class="nav-number">2.1.</span> <span class="nav-text">基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kafka内部的通信协议"><span class="nav-number">2.2.</span> <span class="nav-text">Kafka内部的通信协议</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -851,7 +892,21 @@
   <span class="author" itemprop="copyrightHolder">Claire's H</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">13k</span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">12 分钟</span>
   
 </div>
 

@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[每日复盘【2019-05-06】]]></title>
+    <url>%2F2019%2F05%2F06%2F%E6%AF%8F%E6%97%A5%E5%A4%8D%E7%9B%98%E3%80%902019-05-06%E3%80%91%2F</url>
+    <content type="text"><![CDATA[大盘走势 节前反弹无力，量能不足，板块不热，个股疲软…种种迹象都反应大盘缺乏上升的动力，5、10日线早已向下运行，20、30日线也在节前开始掉头向下，再加上贸易战的消息，今日大盘跳空低开，拉出一根放量大阴线，更加剧了市场空头气氛。近期暂时不考虑入场，要等明确的市场信号再看，资金信号、个股信号、板块信号等等。]]></content>
+      <categories>
+        <category>投资</category>
+        <category>每日复盘</category>
+      </categories>
+      <tags>
+        <tag>A股</tag>
+        <tag>复盘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[tf-idf权重计算]]></title>
+    <url>%2F2019%2F05%2F06%2Ftf-idf%E6%9D%83%E9%87%8D%E8%AE%A1%E7%AE%97%2F</url>
+    <content type="text"><![CDATA[tf-idf中文称为词频-逆文档频率，用以计算词项对于一个文档集或一个语料库中的一份文件的重要程度。 原理词项的重要性随着它在文档中出现的次数成正比增加，但同时会随着它在文档集中出现的频率成反比下降。 概念tf(term frequency)代表词项频率。词频标准化： tf = 单词在文档中出现的次数 / 文档的总词数 tf = √单词在文档中出现的次数 df(document frequency)代表文档频率逆文档频率： idf = log(文档集的总文档数 / (包含某个词的文档数 + 1)) tf-idf = tf * idf 通过tf-idf可以把文档表示成n维的词项权重向量。]]></content>
+      <categories>
+        <category>学习记录</category>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>tf-idf</tag>
+        <tag>nlp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[星星日记01]]></title>
     <url>%2F2018%2F10%2F31%2F%E6%98%9F%E6%98%9F%E6%97%A5%E8%AE%B001%2F</url>
     <content type="text"><![CDATA[星星黄疸有点高，需要晒晒太阳，星星要健健康康的长大哟！]]></content>
@@ -39,7 +65,7 @@
   <entry>
     <title><![CDATA[Kafka源码解析与实战（一）]]></title>
     <url>%2F2018%2F05%2F05%2FKafka%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[Kafka简介 Kafka是一个高度可扩展的消息系统，因其可水平扩展和高吞吐率而被广泛使用。Kafka在LinkedIn中的使用场景： 系统监控：所有主机都会忘Kafka发送系统健康信息和运行信息，负责展示运维信息和报警的系统则从Kafka订阅获取这些运维信息 传统消息队列：把Kafka作为一个分布式消息队列进行使用 分析：收集信息并通过Kafka发送懂啊hadoop集群进行分析和每日报表生成 作为其它分布式日志系统的组件 RESTful接口 审计服务 主要设计目标 以时间复杂度O(1)的方式提供消息持久化能力 高吞吐率，即使在非常廉价的商用机器上也能做到单机支持每秒100k条消息的传输 支持kafka server间的消息分区，以及分布式消费，同时保证每个分区内的消息顺序传输 支持离线数据处理和实时数据处理 支持在线水平扩展 为什么使用消息系统 解耦 冗余：在把一个消息从队列中删除之前，需要处理系统明确指出该消息已经被处理完毕 扩展性：扩展只需简单增加处理过程 灵活性和峰值处理能力 可恢复性 顺序保证 缓冲 异步通信 Kafka架构基本组成在kafka集群中，生产者将消息发送给以Topic命名的消息队列Queue中，消费者订阅发往以某个Topic命名的消息队列Queue中的消息。其中Kafka集群由多个Broker组成，Topic由若干个Partition组成，每个Partition里面的消息通过Offset来获取。 Broker：一台Kafka服务器就是一个Broker，Broker之间的地位平等 Topic：每条发送到Kafka集群的消息都属于某个主题，这个主题就称为Topic。物理上不同Topic的消息分开存储，逻辑上一个Topic的消息虽然保存在一个或多个Broker上，但是用户只需指定消息的主题Topic即可生产或消费数据而不需要去关心数据存放何处 Partition：为了实现可扩展性，一个非常大的Topic可以被分为多个Partition，从而分布到多台Broker上。Partition中的每条消息都会被分配一个自动Id（Offset）。Kafka只保证按一个Partition中的顺序将消息发送给消费者，但是不保证单个Topic中的多个Partition之间的顺序 Offset：消息在Topic的Partition中的位置 Replica：副本 Message：消息，通信的基本单位 Producer：消息生产者 Consumer：消息消费者 Consumer Group：消费者组。每个Consumer属于一个Consumer Group；如果所有的Consumer都具有相同的Consumer Group，那么消息将会在Consumer之间进行负载均衡 Zookeeper：存放Kafka集群相关元数据的组件，Kafka通过Zookeeper管理集群配置 一个简单的消息发送流程 Producer根据指定的路由方法，将消息Push到Topic的某个Partition里 Kafka集群接收到Producer发来的消息后，将其持久化到硬盘，并保留消息指定时常【可配置】，而不关注消息是否被消费 Consumer从Kafka集群pull数据，并控制获取消息的Offset Kafka内部的通信协议【TODO】]]></content>
+    <content type="text"><![CDATA[Kafka简介 Kafka是一个高度可扩展的消息系统，因其可水平扩展和高吞吐率而被广泛使用。Kafka在LinkedIn中的使用场景： 系统监控：所有主机都会忘Kafka发送系统健康信息和运行信息，负责展示运维信息和报警的系统则从Kafka订阅获取这些运维信息 传统消息队列：把Kafka作为一个分布式消息队列进行使用 分析：收集信息并通过Kafka发送懂啊hadoop集群进行分析和每日报表生成 作为其它分布式日志系统的组件 RESTful接口 审计服务 主要设计目标 以时间复杂度O(1)的方式提供消息持久化能力 高吞吐率，即使在非常廉价的商用机器上也能做到单机支持每秒100k条消息的传输 支持kafka server间的消息分区，以及分布式消费，同时保证每个分区内的消息顺序传输 支持离线数据处理和实时数据处理 支持在线水平扩展 为什么使用消息系统 解耦 冗余：在把一个消息从队列中删除之前，需要处理系统明确指出该消息已经被处理完毕 扩展性：扩展只需简单增加处理过程 灵活性和峰值处理能力 可恢复性 顺序保证 缓冲 异步通信 Kafka架构基本组成在kafka集群中，生产者将消息发送给以Topic命名的消息队列Queue中，消费者订阅发往以某个Topic命名的消息队列Queue中的消息。其中Kafka集群由多个Broker组成，Topic由若干个Partition组成，每个Partition里面的消息通过Offset来获取。 Broker：一台Kafka服务器就是一个Broker，Broker之间的地位平等 Topic：每条发送到Kafka集群的消息都属于某个主题，这个主题就称为Topic。物理上不同Topic的消息分开存储，逻辑上一个Topic的消息虽然保存在一个或多个Broker上，但是用户只需指定消息的主题Topic即可生产或消费数据而不需要去关心数据存放何处 Partition：为了实现可扩展性，一个非常大的Topic可以被分为多个Partition，从而分布到多台Broker上。Partition中的每条消息都会被分配一个自动Id（Offset）。Kafka只保证按一个Partition中的顺序将消息发送给消费者，但是不保证单个Topic中的多个Partition之间的顺序 Offset：消息在Topic的Partition中的位置 Replica：副本 Message：消息，通信的基本单位 Producer：消息生产者 Consumer：消息消费者 Consumer Group：消费者组。每个Consumer属于一个Consumer Group；如果所有的Consumer都具有相同的Consumer Group，那么消息将会在Consumer之间进行负载均衡 Zookeeper：存放Kafka集群相关元数据的组件，Kafka通过Zookeeper管理集群配置 一个简单的消息发送流程 Producer根据指定的路由方法，将消息Push到Topic的某个Partition里 Kafka集群接收到Producer发来的消息后，将其持久化到硬盘，并保留消息指定时常【可配置】，而不关注消息是否被消费 Consumer从Kafka集群pull数据，并控制获取消息的Offset Kafka内部的通信协议每个Kafka集群中有一个Leader状态的KafkaController，Leader异常时通过Zookeeper选举出Leader。（todo）]]></content>
       <categories>
         <category>学习记录</category>
         <category>kafka</category>
@@ -104,7 +130,7 @@
   <entry>
     <title><![CDATA[hexo功能探索]]></title>
     <url>%2F2018%2F04%2F03%2Fhexo%E5%8A%9F%E8%83%BD%E6%8E%A2%E7%B4%A2%2F</url>
-    <content type="text"><![CDATA[使用hexo搭建个人博客，记录相关功能的实现方法。 文章分类实现对应md文件的head部分增加相关设置123456title: titledate: 2019-05-02 15:08:57tags: categories: - 一级分类 - 二级分类 其它的，还有tag、comments、toc等参数可以设置 导航栏设置修改对应主题下的配置文件_config.yml。菜单栏设置12345678910111213menu: home: / || home categories: /categories/ || th tags: /tags/ || tags # schedule: /schedule/ || calendar # sitemap: /sitemap.xml || sitemap # commonweal: /404/ || heartbeat archives: /archives/ || archive about: /about/ || usermenu_settings: icons: true badges: true 设置完对应的菜单标签之后，还需要创建对应的文件夹123hexo new page &apos;tags&apos;hexo new page &apos;categories&apos;hexo new page &apos;about&apos; 然后在对应index.md文件中设置type属性123title: 文章分类date: 2019-05-02 15:34:18type: categories 布局设置12345# Schemes# scheme: Musescheme: Mist# scheme: Pisces# scheme: Gemini 显示摘要加入&lt;!-- more --&gt;标签，该标签之上的内容为文章摘要，首页只显示文章摘要。 插入图片使用markdown语法插入图片，前提是执行npm install hexo-asset-image安装相关插件，否则生成的html文件中的图片路径会不准确。 简单加密由于页面是静态html，所以在html中加入js实现简单加密。找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件，加入代码12345678910&lt;script&gt; (function()&#123; if(&apos;&#123;&#123; page.password &#125;&#125;&apos;)&#123; if (prompt(&apos;请输入文章密码&apos;) !== &apos;&#123;&#123; page.password &#125;&#125;&apos;)&#123; alert(&apos;密码错误！&apos;); history.back(); &#125; &#125; &#125;)();&lt;/script&gt; page.password就是md文件中的变量，md文件中设置password参数就能实现简单的权限控制。 搜索功能：安装插件：1npm install hexo-generator-searchdb --save 在根目录下的/theme/next/_config.yml文件中添加配置：12345search: path: search.xml field: post format: html limit: 10000 在根目录下的/theme/next/_config.yml文件修改配置12local_search: enable: true 音乐]]></content>
+    <content type="text"><![CDATA[使用hexo搭建个人博客，记录相关功能的实现方法。 文章分类实现对应md文件的head部分增加相关设置123456title: titledate: 2019-05-02 15:08:57tags: categories: - 一级分类 - 二级分类 其它的，还有tag、comments、toc等参数可以设置 导航栏设置修改对应主题下的配置文件_config.yml。菜单栏设置12345678910111213menu: home: / || home categories: /categories/ || th tags: /tags/ || tags # schedule: /schedule/ || calendar # sitemap: /sitemap.xml || sitemap # commonweal: /404/ || heartbeat archives: /archives/ || archive about: /about/ || usermenu_settings: icons: true badges: true 设置完对应的菜单标签之后，还需要创建对应的文件夹123hexo new page &apos;tags&apos;hexo new page &apos;categories&apos;hexo new page &apos;about&apos; 然后在对应index.md文件中设置type属性123title: 文章分类date: 2019-05-02 15:34:18type: categories 布局设置12345# Schemes# scheme: Musescheme: Mist# scheme: Pisces# scheme: Gemini 显示摘要加入&lt;!-- more --&gt;标签，该标签之上的内容为文章摘要，首页只显示文章摘要。 插入图片使用markdown语法插入图片，前提是执行npm install hexo-asset-image安装相关插件，否则生成的html文件中的图片路径会不准确。 简单加密由于页面是静态html，所以在html中加入js实现简单加密。找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件，加入代码12345678910&lt;script&gt; (function()&#123; if(&apos;&#123;&#123; page.password &#125;&#125;&apos;)&#123; if (prompt(&apos;请输入文章密码&apos;) !== &apos;&#123;&#123; page.password &#125;&#125;&apos;)&#123; alert(&apos;密码错误！&apos;); history.back(); &#125; &#125; &#125;)();&lt;/script&gt; page.password就是md文件中的变量，md文件中设置password参数就能实现简单的权限控制。 搜索功能：安装插件：1npm install hexo-generator-searchdb --save 在根目录下的/theme/next/_config.yml文件中添加配置：12345search: path: search.xml field: post format: html limit: 10000 在根目录下的/theme/next/_config.yml文件修改配置12local_search: enable: true 音乐 视频 字数和阅读时长安装插件1npm install hexo-symbols-count-time 博客根目录配置12345symbols_count_time: symbols: true # 文章字数 time: true # 阅读时长 total_symbols: true # 所有文章总字数 total_time: true # 所有文章阅读中时长 next主题配置123456symbols_count_time: separated_meta: true # 是否换行显示 字数统计 及 阅读时长 item_text_post: true # 文章 字数统计 阅读时长 使用图标 还是 文本表示 item_text_total: false # 博客底部统计 字数统计 阅读时长 使用图标 还是 文本表示 awl: 4 wpm: 275]]></content>
       <categories>
         <category>学习记录</category>
         <category>hexo</category>

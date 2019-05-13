@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="数组【array】">
-<meta name="keywords" content="Golang">
+<meta name="keywords" content="Golang,数组,切片,结构体,接口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go基础学习(二)">
 <meta property="og:url" content="http://yoursite.com/2018/05/04/Go基础学习-二/index.html">
 <meta property="og:site_name" content="D&amp;W&#39;s Space">
 <meta property="og:description" content="数组【array】">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-04T13:35:31.355Z">
+<meta property="og:updated_time" content="2019-05-13T09:52:58.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go基础学习(二)">
 <meta name="twitter:description" content="数组【array】">
@@ -252,7 +252,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
 
   </li>
         
@@ -271,7 +271,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">14</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">16</span></a>
 
   </li>
         
@@ -290,7 +290,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">13</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">12</span></a>
 
   </li>
         
@@ -494,7 +494,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">7.2k</span>
+                <span title="本文字数">14k</span>
               
 
               
@@ -508,7 +508,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">7 分钟</span>
+                <span title="阅读时长">12 分钟</span>
               
             </div>
           
@@ -538,6 +538,10 @@
 <p>slice作为参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// more本质上就是slice类型</span><br><span class="line">func Sum(a int, more ...int) int &#123;</span><br><span class="line">	for _, v := range more &#123;</span><br><span class="line">		a += v</span><br><span class="line">	&#125;</span><br><span class="line">	return a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>基本操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dict := make(map[string]int)</span><br><span class="line">dict[&quot;abc&quot;] = 123</span><br><span class="line">dict[&quot;efg&quot;] = 456</span><br><span class="line">fmt.Println(dict[&quot;abc&quot;])</span><br><span class="line">_, exist := dict[&quot;abcd&quot;]</span><br><span class="line">fmt.Println(exist)               // 判断是否存在，如果不赋值，exist就是false，赋值哪怕是零值，也为true</span><br><span class="line">delete(dict, &quot;abcd&quot;)             // 即使key不存在也不会报错</span><br><span class="line">for index, value := range dict &#123; // map遍历是无序的</span><br><span class="line">    fmt.Println(index, value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>map类型也是引用类型，所以如果作为参数传到函数中修改，会改变变量本身</p>
+<h2 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h2><p>struct不是引用类型，改变自身需要传指针<br><strong>继承</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">type Point struct &#123;</span><br><span class="line">	X, Y int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type Circle struct &#123;</span><br><span class="line">	Point</span><br><span class="line">	Radius int</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="interface"><a href="#interface" class="headerlink" title="interface"></a>interface</h2><p>interface是一组method的组合，可以通过interface来定义对象的一组行为。如果某个对象实现了某个接口的所有方法，则此对象就实现了此接口。<br>如果我们定义了一个interface的变量，那么这个变量里面可以存实现这个interface的任意类型的对象。<br><strong>类型断言</strong>，判断一个interface是否是该类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">type Element interface&#123;&#125;</span><br><span class="line">type List []Element</span><br><span class="line">type People struct &#123;</span><br><span class="line">	Name string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	list := make(List, 3)</span><br><span class="line">	list[0] = 1</span><br><span class="line">	list[1] = &quot;hello&quot;</span><br><span class="line">	list[2] = People&#123;&quot;test&quot;&#125;</span><br><span class="line">	for _, value := range list &#123;</span><br><span class="line">		n, ok := value.(int)</span><br><span class="line">		if ok &#123;</span><br><span class="line">			fmt.Println(n)</span><br><span class="line">			continue</span><br><span class="line">		&#125;</span><br><span class="line">		s, ok := value.(string)</span><br><span class="line">		if ok &#123;</span><br><span class="line">			fmt.Println(s[:3])</span><br><span class="line">			continue</span><br><span class="line">		&#125;</span><br><span class="line">		p, ok := value.(People)</span><br><span class="line">		if ok &#123;</span><br><span class="line">			fmt.Println(p.Name)</span><br><span class="line">			continue</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用switch来简化代码【element.(type)】不能在switch外的任何逻辑里面使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">type Element interface&#123;&#125;</span><br><span class="line">type List []Element</span><br><span class="line">type People struct &#123;</span><br><span class="line">	Name string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	list := make(List, 4)</span><br><span class="line">	list[0] = 1</span><br><span class="line">	list[1] = &quot;hello&quot;</span><br><span class="line">	list[2] = People&#123;&quot;test&quot;&#125;</span><br><span class="line">	list[3] = 2.3</span><br><span class="line">	for _, value := range list &#123;</span><br><span class="line">		switch t := value.(type) &#123;</span><br><span class="line">		case int:</span><br><span class="line">			fmt.Println(t + 1)</span><br><span class="line">		case string:</span><br><span class="line">			fmt.Println(t[:3])</span><br><span class="line">		case People:</span><br><span class="line">			fmt.Println(t.Name)</span><br><span class="line">		default:</span><br><span class="line">			fmt.Println(&quot;类型异常&quot;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>interface也可以向struct一样内嵌</p>
 
       
     </div>
@@ -586,6 +590,14 @@
         <div class="post-tags">
           
             <a href="/tags/Golang/" rel="tag"># Golang</a>
+          
+            <a href="/tags/数组/" rel="tag"># 数组</a>
+          
+            <a href="/tags/切片/" rel="tag"># 切片</a>
+          
+            <a href="/tags/结构体/" rel="tag"># 结构体</a>
+          
+            <a href="/tags/接口/" rel="tag"># 接口</a>
           
         </div>
       
@@ -679,7 +691,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -714,11 +726,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -763,7 +771,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -838,7 +850,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组【array】"><span class="nav-number">1.</span> <span class="nav-text">数组【array】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切片【可变数组】"><span class="nav-number">2.</span> <span class="nav-text">切片【可变数组】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">3.</span> <span class="nav-text">Map</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组【array】"><span class="nav-number">1.</span> <span class="nav-text">数组【array】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切片【可变数组】"><span class="nav-number">2.</span> <span class="nav-text">切片【可变数组】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">3.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#struct"><span class="nav-number">4.</span> <span class="nav-text">struct</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interface"><span class="nav-number">5.</span> <span class="nav-text">interface</span></a></li></ol></div>
             
 
           </div>

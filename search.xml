@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[每日复盘【2019-05-06】]]></title>
-    <url>%2F2019%2F05%2F06%2F%E6%AF%8F%E6%97%A5%E5%A4%8D%E7%9B%98%E3%80%902019-05-06%E3%80%91%2F</url>
-    <content type="text"><![CDATA[大盘走势 节前反弹无力，量能不足，板块不热，个股疲软…种种迹象都反应大盘缺乏上升的动力，5、10日线早已向下运行，20、30日线也在节前开始掉头向下，再加上贸易战的消息，今日大盘跳空低开，拉出一根放量大阴线，更加剧了市场空头气氛。近期暂时不考虑入场，要等明确的市场信号再看，资金信号、个股信号、板块信号等等。]]></content>
-      <categories>
-        <category>投资</category>
-        <category>每日复盘</category>
-      </categories>
-      <tags>
-        <tag>A股</tag>
-        <tag>复盘</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[tf-idf权重计算]]></title>
     <url>%2F2019%2F05%2F06%2Ftf-idf%E6%9D%83%E9%87%8D%E8%AE%A1%E7%AE%97%2F</url>
     <content type="text"><![CDATA[tf-idf中文称为词频-逆文档频率，用以计算词项对于一个文档集或一个语料库中的一份文件的重要程度。 原理词项的重要性随着它在文档中出现的次数成正比增加，但同时会随着它在文档集中出现的频率成反比下降。 概念tf(term frequency)代表词项频率。词频标准化： tf = 单词在文档中出现的次数 / 文档的总词数 tf = √单词在文档中出现的次数 df(document frequency)代表文档频率逆文档频率： idf = log(文档集的总文档数 / (包含某个词的文档数 + 1)) tf-idf = tf * idf 通过tf-idf可以把文档表示成n维的词项权重向量。]]></content>
@@ -116,7 +103,7 @@
   <entry>
     <title><![CDATA[Go基础学习(二)]]></title>
     <url>%2F2018%2F05%2F04%2FGo%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0-%E4%BA%8C%2F</url>
-    <content type="text"><![CDATA[数组【array】 数组定义【定义后长度不可变】12symbol := [...]string&#123;USD: &quot;$&quot;, EUR: &quot;€&quot;, GBP: &quot;￡&quot;, RMB: &quot;￥&quot;&#125;fmt.Println(RMB, symbol[RMB]) 指针数组12345678910111213var array3 [5]*intfor i := range array3 &#123; array3[i] = new(int)&#125;*array3[0] = 1*array3[1] = 2*array3[2] = 3*array3[3] = 4*array3[4] = 5array4 := array3for _, v := range array4 &#123; fmt.Println(*v)&#125; 切片【可变数组】切片在底层维护一个可以动态扩展的数组，切片这一数据结构包含三个元素，指针、长度、容量【所以切片是引用类型】12345678source := make([]string, 3, 5) // 访问长度3个元素，底层数组拥有5个元素，不允许创建容量小于长度的切片source = []string&#123;&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;black&quot;&#125;slice := source[2:3:5] // 1个元素，容量为5-2=3for _, v := range slice &#123; fmt.Println(v)&#125;fmt.Println(len(slice))fmt.Println(cap(slice)) 切片、字符串互相转换123456source := make([]string, 10)source = []string&#123;&quot;123&quot;, &quot;456&quot;, &quot;789&quot;&#125;a := strings.Join(source, &quot;,&quot;) // 切片转字符串m := strings.Split(a, &quot;,&quot;)fmt.Println(a)fmt.Println(m) 中间插入元素1234567a := []int&#123;1, 2, 3, 4, 5&#125;a = append(a, 0)fmt.Println(a)copy(a[3:], a[2:]) // 将[2:]的元素拷贝到[3:]中，最后一个元素丢弃fmt.Println(a)a[2] = 10 // 修改元素为新元素fmt.Print(a) 原地删除123456789// 原地删除，公用底层数组s := []string&#123;&quot;a&quot;, &quot;b&quot;, &quot; &quot;, &quot;d&quot;, &quot;e&quot;, &quot; &quot;, &quot;f&quot;&#125;b := s[:0]for _, x := range s &#123; if x != &quot; &quot; &#123; b = append(b, x) // append函数用于追加元素 &#125;&#125;fmt.Println(b) slice作为参数1234567// more本质上就是slice类型func Sum(a int, more ...int) int &#123; for _, v := range more &#123; a += v &#125; return a&#125; Map基本操作12345678910dict := make(map[string]int)dict[&quot;abc&quot;] = 123dict[&quot;efg&quot;] = 456fmt.Println(dict[&quot;abc&quot;])_, exist := dict[&quot;abcd&quot;]fmt.Println(exist) // 判断是否存在，如果不赋值，exist就是false，赋值哪怕是零值，也为truedelete(dict, &quot;abcd&quot;) // 即使key不存在也不会报错for index, value := range dict &#123; // map遍历是无序的 fmt.Println(index, value)&#125; map类型也是引用类型，所以如果作为参数传到函数中修改，会改变变量本身]]></content>
+    <content type="text"><![CDATA[数组【array】 数组定义【定义后长度不可变】12symbol := [...]string&#123;USD: &quot;$&quot;, EUR: &quot;€&quot;, GBP: &quot;￡&quot;, RMB: &quot;￥&quot;&#125;fmt.Println(RMB, symbol[RMB]) 指针数组12345678910111213var array3 [5]*intfor i := range array3 &#123; array3[i] = new(int)&#125;*array3[0] = 1*array3[1] = 2*array3[2] = 3*array3[3] = 4*array3[4] = 5array4 := array3for _, v := range array4 &#123; fmt.Println(*v)&#125; 切片【可变数组】切片在底层维护一个可以动态扩展的数组，切片这一数据结构包含三个元素，指针、长度、容量【所以切片是引用类型】12345678source := make([]string, 3, 5) // 访问长度3个元素，底层数组拥有5个元素，不允许创建容量小于长度的切片source = []string&#123;&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;black&quot;&#125;slice := source[2:3:5] // 1个元素，容量为5-2=3for _, v := range slice &#123; fmt.Println(v)&#125;fmt.Println(len(slice))fmt.Println(cap(slice)) 切片、字符串互相转换123456source := make([]string, 10)source = []string&#123;&quot;123&quot;, &quot;456&quot;, &quot;789&quot;&#125;a := strings.Join(source, &quot;,&quot;) // 切片转字符串m := strings.Split(a, &quot;,&quot;)fmt.Println(a)fmt.Println(m) 中间插入元素1234567a := []int&#123;1, 2, 3, 4, 5&#125;a = append(a, 0)fmt.Println(a)copy(a[3:], a[2:]) // 将[2:]的元素拷贝到[3:]中，最后一个元素丢弃fmt.Println(a)a[2] = 10 // 修改元素为新元素fmt.Print(a) 原地删除123456789// 原地删除，公用底层数组s := []string&#123;&quot;a&quot;, &quot;b&quot;, &quot; &quot;, &quot;d&quot;, &quot;e&quot;, &quot; &quot;, &quot;f&quot;&#125;b := s[:0]for _, x := range s &#123; if x != &quot; &quot; &#123; b = append(b, x) // append函数用于追加元素 &#125;&#125;fmt.Println(b) slice作为参数1234567// more本质上就是slice类型func Sum(a int, more ...int) int &#123; for _, v := range more &#123; a += v &#125; return a&#125; Map基本操作12345678910dict := make(map[string]int)dict[&quot;abc&quot;] = 123dict[&quot;efg&quot;] = 456fmt.Println(dict[&quot;abc&quot;])_, exist := dict[&quot;abcd&quot;]fmt.Println(exist) // 判断是否存在，如果不赋值，exist就是false，赋值哪怕是零值，也为truedelete(dict, &quot;abcd&quot;) // 即使key不存在也不会报错for index, value := range dict &#123; // map遍历是无序的 fmt.Println(index, value)&#125; map类型也是引用类型，所以如果作为参数传到函数中修改，会改变变量本身 structstruct不是引用类型，改变自身需要传指针继承12345678type Point struct &#123; X, Y int&#125;type Circle struct &#123; Point Radius int&#125; interfaceinterface是一组method的组合，可以通过interface来定义对象的一组行为。如果某个对象实现了某个接口的所有方法，则此对象就实现了此接口。如果我们定义了一个interface的变量，那么这个变量里面可以存实现这个interface的任意类型的对象。类型断言，判断一个interface是否是该类型123456789101112131415161718192021222324252627282930313233package mainimport &quot;fmt&quot;type Element interface&#123;&#125;type List []Elementtype People struct &#123; Name string&#125;func main() &#123; list := make(List, 3) list[0] = 1 list[1] = &quot;hello&quot; list[2] = People&#123;&quot;test&quot;&#125; for _, value := range list &#123; n, ok := value.(int) if ok &#123; fmt.Println(n) continue &#125; s, ok := value.(string) if ok &#123; fmt.Println(s[:3]) continue &#125; p, ok := value.(People) if ok &#123; fmt.Println(p.Name) continue &#125; &#125;&#125; 使用switch来简化代码【element.(type)】不能在switch外的任何逻辑里面使用1234567891011121314151617181920212223242526272829package mainimport &quot;fmt&quot;type Element interface&#123;&#125;type List []Elementtype People struct &#123; Name string&#125;func main() &#123; list := make(List, 4) list[0] = 1 list[1] = &quot;hello&quot; list[2] = People&#123;&quot;test&quot;&#125; list[3] = 2.3 for _, value := range list &#123; switch t := value.(type) &#123; case int: fmt.Println(t + 1) case string: fmt.Println(t[:3]) case People: fmt.Println(t.Name) default: fmt.Println(&quot;类型异常&quot;) &#125; &#125;&#125; interface也可以向struct一样内嵌]]></content>
       <categories>
         <category>学习记录</category>
         <category>golang</category>
@@ -124,6 +111,10 @@
       </categories>
       <tags>
         <tag>Golang</tag>
+        <tag>数组</tag>
+        <tag>切片</tag>
+        <tag>结构体</tag>
+        <tag>接口</tag>
       </tags>
   </entry>
   <entry>
